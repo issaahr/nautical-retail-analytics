@@ -1,0 +1,41 @@
+# Environment / secrets
+.env
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Tests / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data
+data/raw/*
+!data/raw/README.md
+
+data/processed/*
+!data/processed/.gitkeep
+
+# Generated outputs
+outputs/*
+!outputs/.gitkeep
+!outputs/figures/
+!outputs/figures/.gitkeep
+
+# Docker
+postgres_data/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
