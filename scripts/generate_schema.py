@@ -17,6 +17,7 @@ import os
 import re
 import argparse
 from datetime import datetime
+from typing import Optional
 
 
 # ---------------------------------------------------------------------------
@@ -142,7 +143,7 @@ COLUMN_TYPE_OVERRIDES = {
 }
 
 
-def merge_types(current: str, new: str) -> str:
+def merge_types(current: Optional[str], new: str) -> str:
     """
     Combina o tipo acumulado da coluna com o tipo do valor atual.
     Usa uma tabela explicita de compatibilidades; qualquer combinacao
@@ -170,7 +171,7 @@ def infer_column_types(csv_path: str):
         except StopIteration:
             return [], {}
 
-        col_types = {col: None for col in header}
+        col_types: dict[str, Optional[str]] = {col: None for col in header}
         malformed_rows = 0
         malformed_row_numbers = []
 
@@ -278,7 +279,9 @@ def generate_schema(input_dir: str, output_path: str):
         print(f"[ok] {csv_file} -> tabela '{sanitize_identifier(table_name)}' "
               f"({len(header)} colunas)")
 
-    os.makedirs(os.path.dirname(output_path), exist_ok=True) if os.path.dirname(output_path) else None
+    output_dir = os.path.dirname(output_path)
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("\n".join(statements))
 
