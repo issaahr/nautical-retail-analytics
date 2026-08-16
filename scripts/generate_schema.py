@@ -282,6 +282,10 @@ def generate_schema(input_dir: str, output_path: str):
     output_dir = os.path.dirname(output_path)
     if output_dir:
         os.makedirs(output_dir, exist_ok=True)
+
+    # O schema.sql representa o estado atual dos CSVs de origem e, portanto,
+    # e regenerado integralmente a cada execucao. A evolucao de um schema
+    # existente (ALTER TABLE/migracoes) esta fora do escopo deste gerador.
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("\n".join(statements))
 
