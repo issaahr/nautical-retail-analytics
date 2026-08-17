@@ -1,6 +1,4 @@
 """
-load_data.py
-
 Carrega todos os arquivos CSV de um diretorio de origem no PostgreSQL,
 respeitando o schema gerado por generate_schema.py (Q2). Nao realiza
 nenhum tratamento dos dados -- sem remocao de nulos, sem correcao de

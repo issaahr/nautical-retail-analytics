@@ -1,6 +1,4 @@
 """
-generate_schema.py
-
 Le todos os arquivos CSV de um diretorio de origem e gera um unico arquivo
 schema.sql com as instrucoes CREATE TABLE (PostgreSQL) correspondentes,
 uma tabela por CSV.
