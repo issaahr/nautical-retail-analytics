@@ -1,15 +1,26 @@
+import sys
+from pathlib import Path
+
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
+
+
+# Mantém nomes com acentos legíveis também em terminais Windows cuja
+# codificação padrão não seja UTF-8.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
 
 
 # ============================================================
 # 1. Leitura dos dados
 # ============================================================
 
-orders = pd.read_csv("../data/raw/orders.csv")
-order_items = pd.read_csv("../data/raw/order_items.csv")
-product_variants = pd.read_csv("../data/raw/product_variants.csv")
-products = pd.read_csv("../data/raw/products.csv")
+DATA_DIR = Path(__file__).resolve().parents[1] / "data" / "raw"
+
+orders = pd.read_csv(DATA_DIR / "orders.csv")
+order_items = pd.read_csv(DATA_DIR / "order_items.csv")
+product_variants = pd.read_csv(DATA_DIR / "product_variants.csv")
+products = pd.read_csv(DATA_DIR / "products.csv")
 
 
 # ============================================================

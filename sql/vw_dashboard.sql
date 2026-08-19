@@ -237,7 +237,7 @@ GROUP BY
 -- ============================================================================
 -- VW 6 - Media de vendas por dia da semana
 -- ============================================================================
--- Inclui dias sem vendas no calculo da media, conforme a premissa da Q6.
+-- Inclui dias sem vendas no calculo da media, conforme a premissa da Q5.
 -- A analise considera apenas o canal POS.
 DROP VIEW IF EXISTS vw_dashboard_weekday_sales;
 CREATE OR REPLACE VIEW vw_dashboard_weekday_sales AS

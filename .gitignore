@@ -29,6 +29,10 @@ outputs/*
 !outputs/figures/
 !outputs/figures/.gitkeep
 
+# Dashboard binary remains local until the final submission
+dashboard/*.pbix
+!dashboard/.gitkeep
+
 # Docker
 postgres_data/
 
